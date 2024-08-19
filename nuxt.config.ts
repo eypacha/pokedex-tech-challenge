@@ -1,25 +1,34 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2024-04-03',
+  compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
   vite: {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@use "~/assets/scss/_colors.scss" as *;'
-        }
-      }
-    }
+          additionalData: '@use "~/assets/scss/_colors.scss" as *;',
+        },
+      },
+    },
   },
-  css: ['~/assets/scss/main.scss'],
+  css: ["~/assets/scss/main.scss"],
   modules: [
+    "@nuxtjs/tailwindcss",
+    "shadcn-nuxt",
     "@nuxt/eslint",
-    ["@nuxtjs/google-fonts", {
-      families: {
-        Lato: {
-          wght: [400, 700]
-        }
-      }
-    }]
-  ]
-})
+    [
+      "@nuxtjs/google-fonts",
+      {
+        families: {
+          Lato: {
+            wght: [400, 700],
+          },
+        },
+      },
+    ],
+  ],
+  shadcn: {
+    prefix: '',
+    componentDir: './components/ui'
+  }
+});
