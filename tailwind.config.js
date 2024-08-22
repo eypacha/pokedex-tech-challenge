@@ -16,7 +16,8 @@ module.exports = {
       },
     },
     fontFamily: {
-      'sans' : ['Lato', ...defaultTheme.fontFamily.sans]
+      'sans' : ['Lato', ...defaultTheme.fontFamily.sans],
+      'monserrat': ['Montserrat', ...defaultTheme.fontFamily.sans],
     },
     extend: {
       colors: {
@@ -64,7 +65,8 @@ module.exports = {
         },
       },
       boxShadow: {
-        'top': '0 -5px 4px rgba(0,0,0,0.05)'
+        'soft': '0 2px 10px 0 rgba(0,0,0,0.04)',
+        'top': '0 -5px 4px 0 rgba(0,0,0,0.05)'
       },
       borderRadius: {
       	xl: "calc(var(--radius) + 4px)",

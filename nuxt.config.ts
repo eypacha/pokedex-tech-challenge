@@ -14,6 +14,9 @@ export default defineNuxtConfig({
           Lato: {
             wght: [400, 700],
           },
+          Montserrat: {
+            wght: [500],
+          }
         },
       },
     ],
@@ -26,7 +29,7 @@ export default defineNuxtConfig({
   fontawesome: {
     component: 'fa',
     icons: {
-      solid: ['star','list']
+      solid: ['star','list','magnifying-glass']
     }
   },
   hooks: {
