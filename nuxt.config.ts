@@ -17,9 +17,16 @@ export default defineNuxtConfig({
         },
       },
     ],
+    "@vesp/nuxt-fontawesome"
   ],
   shadcn: {
     prefix: '',
     componentDir: './components/ui'
+  },
+  fontawesome: {
+    component: 'fa',
+    icons: {
+      solid: ['star','list']
+    }
   }
 });
