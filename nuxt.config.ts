@@ -28,5 +28,14 @@ export default defineNuxtConfig({
     icons: {
       solid: ['star','list']
     }
+  },
+  hooks: {
+    'pages:extend'(pages) {
+      pages.push({
+        name: 'favorites',
+        path: '/favorites',
+        file: '~/pages/list.vue'
+      })
+    }
   }
 });
