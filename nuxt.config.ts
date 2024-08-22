@@ -4,6 +4,9 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
   modules: [
+    ["@pinia/nuxt",{
+      autoImports: ['defineStore', 'acceptHMRUpdate']
+    }],
     "@nuxtjs/tailwindcss",
     "shadcn-nuxt",
     "@nuxt/eslint",
@@ -40,5 +43,8 @@ export default defineNuxtConfig({
         file: '~/pages/list.vue'
       })
     }
+  },
+  imports: {
+    dirs: ['stores']
   }
 });
