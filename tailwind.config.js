@@ -1,4 +1,5 @@
 const animate = require("tailwindcss-animate")
+const defaultTheme = require("tailwindcss/defaultTheme")
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -14,6 +15,9 @@ module.exports = {
         "2xl": "1400px",
       },
     },
+    fontFamily: {
+      'sans' : ['Lato', ...defaultTheme.fontFamily.sans]
+    },
     extend: {
       colors: {
         border: "hsl(var(--border))",
@@ -24,6 +28,15 @@ module.exports = {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          dark: "hsl(var(--primary-dark))",
+        },
+        white: {
+          DEFAULT: "#FFFFFF"
+        },
+        grey: {
+          DEFAULT: "hsl(var(--grey))",
+          light: "hsl(var(--grey-light))",
+          dark: "hsl(var(--grey-dark))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
