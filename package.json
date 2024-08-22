@@ -28,6 +28,8 @@
     "@nuxtjs/tailwindcss": "^6.12.1",
     "@vesp/nuxt-fontawesome": "^1.0.4",
     "eslint": "^9.9.0",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.6",
     "shadcn-nuxt": "^0.10.4",
     "typescript": "^5.5.4"
   }
