@@ -1,9 +1,10 @@
 <template>
+  <Toaster />
   <Dialog :open="open">
     <DialogContent class="overflow-hidden p-0">
       <div class="sr-only">
         <DialogTitle>
-          {{ `Details of ${formatName(pokemonDetails.name)}` }}
+          {{ `Details of ${formattedName}` }}
         </DialogTitle>
         <DialogDescription>
           Here you can view detailed information about the selected Pokémon, including its image, weight, and height.
@@ -13,14 +14,14 @@
         <fa icon="circle-xmark" class="transition-transform duration-150 group-hover:scale-110" />
       </button>
       <div class="bgImage h-[220px] bg-sky-300 flex justify-center items-center">
-        <img v-if="pokemonDetails?.image" :src="pokemonDetails.image" class="h-[180px]" :alt="`Image of ${formatName(pokemonDetails.name)}`"/>
-        <img v-else src="/img/question-mark.webp" class="h-[180px]" :alt="`No image available for ${formatName(pokemonDetails.name)}`">
+        <img v-if="pokemonDetails?.image" :src="pokemonDetails.image" class="h-[180px]" :alt="`Image of ${formattedName}`"/>
+        <img v-else src="/img/question-mark.webp" class="h-[180px]" :alt="`No image available for ${formattedName}`">
       </div>
       <div class="grid gap-4 px-8 py-4 text-lg">
         <div>
           <p class="border-b-2 leading-10">
             <strong>Name:</strong>
-            {{ formatName(pokemonDetails.name) }}
+            {{ formattedName }}
           </p>
           <p class="border-b-2 leading-10">
             <strong>Weight:</strong> {{ pokemonDetails.weight }}
@@ -34,7 +35,7 @@
           </p>
         </div>
         <div class="flex items-center justify-between">
-          <Button>Share to my friends</Button>
+          <Button @click="copyPokemonDetails">Share to my friends</Button>
           <StarToggle aria-label="Mark as favorite" :checked="favoritesStore.favorites.has(pokemonDetails.name)" @change="onToggleFavorite" />
         </div>
       </div>
@@ -44,7 +45,11 @@
 
 <script setup lang="ts">
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog'
+import { useToast } from '@/components/ui/toast/use-toast'
+import { Toaster } from '@/components/ui/toast'
 import { formatName } from '~/utils/formatters'
+
+const { toast } = useToast()
 
 const props = defineProps<{
   open: boolean
@@ -72,6 +77,8 @@ const defaultPokemonDetails = {
 
 const pokemonDetails = ref(props.pokemonDetails || defaultPokemonDetails)
 
+const formattedName = computed(() => formatName(pokemonDetails.value.name));
+
 watch(() => props.pokemonDetails, (newDetails) => {
   if (newDetails) {
     pokemonDetails.value = newDetails
@@ -89,6 +96,27 @@ const onClose = () => {
 const onToggleFavorite = () => {
   if (props.pokemonDetails) {
     emit('toggle-favorite', props.pokemonDetails.name)
+  }
+}
+
+const copyPokemonDetails = async () => {
+  if (pokemonDetails.value) {
+    const details = `Name: ${formattedName.value}, Height: ${pokemonDetails.value.height}, Weight: ${pokemonDetails.value.weight}, Types: ${pokemonDetails.value.types.join(', ')}`
+    try {
+      await navigator.clipboard.writeText(details)
+      toast({
+        description: 'Pokemon details copied to clipboard!',
+        duration: 3000
+      });
+    } catch (err) {
+      const errorMessage = (err as Error).message;
+      console.error('Failed to copy text: ', errorMessage)
+      toast({
+        description: 'Uh-oh! Failed to copy Pokemon details',
+        duration: 3000,
+        variant: 'primary'
+      });
+    }
   }
 }
 </script>
