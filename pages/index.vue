@@ -1,7 +1,7 @@
 <template>
     <div class="flex h-dvh flex-col items-center justify-center gap-10 p-8">
         <img
-            src="~/assets/img/pikachu.svg"
+            src="/img/pikachu.webp"
             alt="Image of Pikachu waving"
             width="325"/>
         <div class="max-w-prose text-center">

@@ -14,7 +14,7 @@
       </button>
       <div class="bgImage h-[220px] bg-sky-300 flex justify-center items-center">
         <img v-if="pokemonDetails?.image" :src="pokemonDetails.image" class="h-[180px]" :alt="`Image of ${formatName(pokemonDetails.name)}`"/>
-        <img v-else src="~/assets/img/question-mark.png" class="h-[180px]" :alt="`No image available for ${formatName(pokemonDetails.name)}`">
+        <img v-else src="/img/question-mark.webp" class="h-[180px]" :alt="`No image available for ${formatName(pokemonDetails.name)}`">
       </div>
       <div class="grid gap-4 px-8 py-4 text-lg">
         <div>
@@ -95,7 +95,7 @@ const onToggleFavorite = () => {
 
 <style scoped lang="css">
 .bgImage {
-  background-image: url('@/assets/img/background.png');
+  background-image: url('/img/background.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
