@@ -61,4 +61,8 @@ const showDetails = async (name: string) => {
   pokemonDetails.value = await usePokemonDetails(name)
   showDialog.value = true
 }
+
+useSeoMeta({
+  title: route.path === '/favorites' ? 'My favorites' : 'All pokemons'
+})
 </script>

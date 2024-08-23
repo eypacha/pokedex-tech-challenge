@@ -23,5 +23,9 @@ defineProps({
     },
 })
 
+useSeoMeta({
+  title: 'Uh-oh! | Pokédex'
+})
+
 const handleError = () => clearError({ redirect: '/' })
 </script>
