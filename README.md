@@ -1,5 +1,5 @@
 # Pokédex Tech Challenge
-
+![Pikachu te saluda](https://github.com/eypacha/pokedex-tech-challenge/blob/master/public/img/pikachu.webp)
 ### Consigna
 
 La prueba consiste utilizar **Vue.js** para crear una lista de Pokémons favoritos siguiendo las especificaciones de diseño proporcionadas en el documento de [Figma](https://figma.com/design/RxextQHeFs98SQKdpTrahk/Pokédex).
@@ -32,7 +32,7 @@ Para iniciar el servidor de desarrollo:
 yarn dev
 ```
 
-> [!NOTE] 
+> [!NOTA] 
 > En desarrollo, la función de copiado al portapapeles solo funciona en un  [contexto seguro](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts),  como http://localhost:3000, pero no en una versión expuesta a la red por IP privada.
 
 #### Producción
