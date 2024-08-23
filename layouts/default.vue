@@ -1,10 +1,10 @@
 <template>
     <div class="flex h-dvh flex-col">
-        <div class="container h-full max-w-screen-sm py-8">
-            <slot class="mx-auto" />
+        <div class="container flex max-w-screen-sm flex-1 flex-col gap-5 overflow-y-hidden py-8">
+            <slot />
         </div>
-        <div class="bg-white shadow-top">
-            <div class="container max-w-screen-sm p-4">
+        <div class="mt-auto bg-white shadow-top">
+            <div class="container max-w-screen-sm px-7 py-4">
                 <div class="flex w-full gap-5">
                     <NavButton to="/list" icon="list">All</NavButton>
                     <NavButton to="/favorites" icon="star">Favorites</NavButton>
