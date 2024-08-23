@@ -32,7 +32,7 @@ export default defineNuxtConfig({
   fontawesome: {
     component: 'fa',
     icons: {
-      solid: ['star','list','magnifying-glass']
+      solid: ['star','list','magnifying-glass','circle-xmark']
     }
   },
   hooks: {
