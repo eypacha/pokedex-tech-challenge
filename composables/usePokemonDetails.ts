@@ -11,16 +11,21 @@ interface PokemonDetails {
   }
 }
 export async function usePokemonDetails(name: string) {
-  const response = await $fetch<PokemonDetails>(`https://pokeapi.co/api/v2/pokemon/${name}`)
-
-  return {
-    name: name,
-    height: response.height,
-    weight: response.weight,
-    types: response.types.map(typeInfo => capitalizeFirstLetter(typeInfo.type.name)),
-    image: response.sprites.other['official-artwork'].front_default
+  try {
+    const response = await $fetch<PokemonDetails>(`https://pokeapi.co/api/v2/pokemon/${name}`);
+    return {
+      name: name,
+      height: response.height,
+      weight: response.weight,
+      types: response.types.map(typeInfo => capitalizeFirstLetter(typeInfo.type.name)),
+      image: response.sprites.other['official-artwork'].front_default
+    };
+  } catch (error) {
+    console.error('Error fetching Pokémon details:', error);
+    return null;
   }
 }
+
 
 function capitalizeFirstLetter(string: string): string {
   return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
