@@ -73,8 +73,11 @@ const toggleFavorite = (name: string) => {
 }
 
 const showDetails = async (name: string) => {
-  pokemonDetails.value = await usePokemonDetails(name)
-  showDialog.value = true
+  const details = await usePokemonDetails(name);
+  if (details !== null) {
+    pokemonDetails.value = details;
+    showDialog.value = true;
+  }
 }
 
 const isLoading = computed(() => status.value === 'pending' || !isInitialized.value)
