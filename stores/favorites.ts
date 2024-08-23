@@ -1,15 +1,15 @@
 export const useFavoritesStore = defineStore('favorites', {
     state: () => {
       return {
-        favorites:  new Set<number>()
+        favorites:  new Set<string>()
       }
     },
     actions: {
-      toggleFavorite(id: number) {
-        if (this.favorites.has(id)) {
-          this.favorites.delete(id)
+      toggleFavorite(name: string) {
+        if (this.favorites.has(name)) {
+          this.favorites.delete(name)
         } else {
-          this.favorites.add(id)
+          this.favorites.add(name)
         }
       }
     }
