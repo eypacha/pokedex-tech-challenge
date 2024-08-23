@@ -34,7 +34,7 @@
             <strong>Height:</strong> {{ pokemonDetails.height }}
           </p>
           <p class="border-b-2 leading-10">
-            <strong>Types:</strong>
+            <strong>{{ pokemonDetails.types.length == 1 ? 'Type' : 'Types' }}:</strong>
             {{ pokemonDetails.types.join(', ') }}
           </p>
         </div>
@@ -105,21 +105,28 @@ const onToggleFavorite = () => {
 }
 
 const copyPokemonDetails = async () => {
+
+  const TOAST_DURATION = 3000;
   if (pokemonDetails.value) {
-    const details = `Name: ${formattedName.value}, Height: ${pokemonDetails.value.height}, Weight: ${pokemonDetails.value.weight}, Types: ${pokemonDetails.value.types.join(', ')}`
+    const formatTypes = (types: string[]) => types.length > 1 ? `"${types.join(', ')}"` : types[0];
+
+    const headers = `Name,Height,Weight,Types`;
+    const values = `${formattedName.value},${pokemonDetails.value.height},${pokemonDetails.value.weight},${formatTypes(pokemonDetails.value.types)}`;
+    const details = `${headers}\n${values}`;
+
     try {
       await navigator.clipboard.writeText(details)
       toast({
         description: 'Pokemon details copied to clipboard!',
-        duration: 3000
+        duration: TOAST_DURATION
       });
     } catch (err) {
       const errorMessage = (err as Error).message;
       console.error('Failed to copy text: ', errorMessage)
       toast({
         description: 'Uh-oh! Failed to copy Pokemon details',
-        duration: 3000,
-        variant: 'primary'
+        variant: 'primary',
+        duration: TOAST_DURATION,
       });
     }
   }
