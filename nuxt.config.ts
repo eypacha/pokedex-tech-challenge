@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "shadcn-nuxt",
     "@nuxt/eslint",
+    "@nuxt/test-utils/module",
     [
       "@nuxtjs/google-fonts",
       {
