@@ -18,7 +18,7 @@
           :src="pokemonDetails.image ?? '/img/question-mark.webp'"
           :alt="pokemonDetails.image ? `Image of ${formattedName}` : `No image available for ${formattedName}`"
           class="h-[180px] transition-opacity duration-700 ease-in-out opacity-0"
-          @load="$event.target.classList.remove('opacity-0')"
+          @load="(event) => (event.target as HTMLImageElement)?.classList.remove('opacity-0')"
         />
       </div>
       <div class="grid gap-4 px-8 py-4 text-lg">
