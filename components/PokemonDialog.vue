@@ -125,12 +125,3 @@ const copyPokemonDetails = async () => {
   }
 }
 </script>
-
-<style scoped lang="css">
-.bgImage {
-  background-image: url('/img/background.webp');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-</style>

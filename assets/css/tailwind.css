@@ -11,4 +11,11 @@
   body {
     @apply bg-background text-foreground font-sans selection:bg-primary selection:text-white;
   }
+
+  .bgImage {
+    background-image: url('/img/background.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 }
