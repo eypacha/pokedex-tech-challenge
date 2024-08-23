@@ -10,7 +10,7 @@ La prueba consiste en crear una lista de Pokémon favoritos siguiendo las especi
 
 Después de analizar los requisitos y el documento de diseño, decidí realizar algunas modificaciones al documento original. El documento contenía imprecisiones en UI/UX que dificultaban cumplir con la consigna y entregar un proyecto de calidad.
 
-El nuevo documento actualizado está disponible en este [link](https://figma.com/design/LpJ72b9fSt8yfqOguKCFaW/Pokédex).
+El nuevo documento actualizado está disponible en este [link](https://figma.com/design/LpJ72b9fSt8yfqOguKCFaW/Pokédex). Debido a las imprecisiones encontradas en el diseño original, opté por no tratar el documento como un requisito *pixel-perfect*. En su lugar, lo utilicé como una guía general, siguiendo el sentido común para determinar qué aspectos era importante respetar y cuáles podían adaptarse. Cabe destacar que mi versión del documento tampoco refleja un rediseño ideal, ya que un rediseño completo habría desviado el enfoque del desarrollo
 
 ### Stack Elegido
 
