@@ -1,6 +1,6 @@
 <template>
     <div class="flex h-dvh flex-col">
-        <div class="container flex max-w-screen-sm flex-1 flex-col gap-5 overflow-y-hidden py-8">
+        <div class="container flex max-w-screen-sm flex-1 flex-col gap-5 overflow-y-hidden pt-8">
             <slot />
         </div>
         <div class="mt-auto bg-white shadow-top">
