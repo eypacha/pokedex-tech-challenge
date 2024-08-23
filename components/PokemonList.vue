@@ -19,7 +19,7 @@
   </template>
   
   <script setup lang="ts">
-  import { formatName } from '~/utils/formatters'
+  import { formatName } from '~/utils'
   
   interface Pokemon {
     name: string

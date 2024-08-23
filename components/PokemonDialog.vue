@@ -51,7 +51,7 @@
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog'
 import { useToast } from '@/components/ui/toast/use-toast'
 import { Toaster } from '@/components/ui/toast'
-import { formatName } from '~/utils/formatters'
+import { formatName } from '~/utils'
 
 const { toast } = useToast()
 
