@@ -1,5 +1,7 @@
 <template>
-  <PokeLoading v-if="isLoading" />
+  <transition name="fade">
+    <PokeLoading v-if="isLoading" />
+  </transition>
   <SearchBar v-model:searchQuery="searchQuery" />
   <ScrollArea class="flex-1">
     <PokemonList
@@ -19,6 +21,7 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
 import ScrollArea from '~/components/ui/scroll-area/ScrollArea.vue'
+import { preloadImage } from '~/utils'
 
 const { status, pokemons } = usePokemonList()
 const searchQuery = ref('')
@@ -56,6 +59,12 @@ const isInitialized = ref(false)
 const favoritesStore = useFavoritesStore()
 
 onMounted(async () => {
+  try {
+    await preloadImage(`/img/background.webp`)
+  } catch (error) {
+    console.warn('Error precargando la imagen:', error)
+  }
+
   isInitialized.value = true
 })
 
@@ -74,3 +83,12 @@ useSeoMeta({
   title: route.path === '/favorites' ? 'My favorites' : 'All pokemons'
 })
 </script>
+
+<style scoped>
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
