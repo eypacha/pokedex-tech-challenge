@@ -32,7 +32,7 @@ Para iniciar el servidor de desarrollo:
 yarn dev
 ```
 
-> [!NOTA] 
+> [!NOTE] 
 > En desarrollo, la función de copiado al portapapeles solo funciona en un  [contexto seguro](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts),  como http://localhost:3000, pero no en una versión expuesta a la red por IP privada.
 
 #### Producción
