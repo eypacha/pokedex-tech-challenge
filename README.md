@@ -33,7 +33,7 @@ yarn dev
 ```
 
 > [!NOTE] 
-> En desarrollo, la función de copiado al portapapeles solo funciona en un  [contexto seguro](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts),  como http://localhost:3000, pero no en una versión expuesta a la red por IP privada.
+> La función de copiado al portapapeles sólo funciona en un [contexto seguro](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts) (https) o en http://localhost:3000, pero no sobre http expuesta a la red por IP privada.
 
 #### Producción
 
