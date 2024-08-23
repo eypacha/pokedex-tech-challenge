@@ -1,5 +1,5 @@
 <template>
-  <PokeLoading v-if="status === 'pending'" />
+  <PokeLoading v-if="isLoading" />
   <SearchBar v-model:searchQuery="searchQuery" />
   <ScrollArea class="flex-1">
     <PokemonList
@@ -51,7 +51,13 @@ const filteredPokemons = computed(() => {
   )
 })
 
+const isInitialized = ref(false)
+
 const favoritesStore = useFavoritesStore()
+
+onMounted(async () => {
+  isInitialized.value = true
+})
 
 const toggleFavorite = (name: string) => {
   favoritesStore.toggleFavorite(name)
@@ -61,6 +67,8 @@ const showDetails = async (name: string) => {
   pokemonDetails.value = await usePokemonDetails(name)
   showDialog.value = true
 }
+
+const isLoading = computed(() => status.value === 'pending' || !isInitialized.value)
 
 useSeoMeta({
   title: route.path === '/favorites' ? 'My favorites' : 'All pokemons'
