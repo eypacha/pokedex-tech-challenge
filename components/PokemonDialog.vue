@@ -14,8 +14,12 @@
         <fa icon="circle-xmark" class="transition-transform duration-150 group-hover:scale-110" />
       </button>
       <div class="bgImage h-[220px] bg-sky-300 flex justify-center items-center">
-        <img v-if="pokemonDetails?.image" :src="pokemonDetails.image" class="h-[180px]" :alt="`Image of ${formattedName}`"/>
-        <img v-else src="/img/question-mark.webp" class="h-[180px]" :alt="`No image available for ${formattedName}`">
+        <img
+          :src="pokemonDetails.image ?? '/img/question-mark.webp'"
+          :alt="pokemonDetails.image ? `Image of ${formattedName}` : `No image available for ${formattedName}`"
+          class="h-[180px] transition-opacity duration-700 ease-in-out opacity-0"
+          @load="$event.target.classList.remove('opacity-0')"
+        />
       </div>
       <div class="grid gap-4 px-8 py-4 text-lg">
         <div>
@@ -62,11 +66,6 @@ const props = defineProps<{
   } | null
 }>()
 
-const emit = defineEmits<{
-  (event: 'close'): void
-  (event: 'toggle-favorite', name: string): void
-}>()
-
 const defaultPokemonDetails = {
   name: '',
   height: 0,
@@ -74,6 +73,12 @@ const defaultPokemonDetails = {
   types: [],
   image: ''
 }
+
+const emit = defineEmits<{
+  (event: 'close'): void
+  (event: 'toggle-favorite', name: string): void
+}>()
+
 
 const pokemonDetails = ref(props.pokemonDetails || defaultPokemonDetails)
 
